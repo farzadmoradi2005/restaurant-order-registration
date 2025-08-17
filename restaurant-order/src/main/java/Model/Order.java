@@ -26,4 +26,71 @@ public class Order {
         this.orderDate = LocalDateTime.now();
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(String orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public boolean isOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(boolean orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public boolean isCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
+
+    public boolean isTakeaway() {
+        return isTakeaway;
+    }
+
+    public void setTakeaway(boolean takeaway) {
+        isTakeaway = takeaway;
+    }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public int getOrderPrice() {
+        return orderPrice;
+    }
+
+    public void setOrderPrice(int orderPrice) {
+        this.orderPrice = orderPrice;
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
 }
