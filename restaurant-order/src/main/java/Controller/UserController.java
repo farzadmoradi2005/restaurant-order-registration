@@ -1,8 +1,11 @@
 package Controller;
 
+import Model.User;
+
 import java.sql.*;
 
 public class UserController {
+    private static User currentUser = null;
     public void signUp(String userName, String password) throws SQLException {
         String URL = "jdbc:postgresql://localhost:5432/Restaurant_Order";
         String USER = "RestaurantAdmin";
@@ -26,6 +29,7 @@ public class UserController {
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
+            currentUser = new User(rs.getString("username"), rs.getString("password"));
             con.close();
             return true;
         }

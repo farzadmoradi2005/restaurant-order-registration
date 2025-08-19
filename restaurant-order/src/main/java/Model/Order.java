@@ -1,8 +1,6 @@
 package Model;
 
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class Order {
     private User user;
@@ -15,7 +13,7 @@ public class Order {
     private String Address;
    private final LocalDateTime orderDate;
     private int orderPrice;
-    public Order(User user, String orderDetails , boolean isTakeaway , int orderPrice ) {
+    public Order(String orderDetails , boolean isTakeaway , int orderPrice ) {
         this.user = user;
         this.orderDetails = orderDetails;
         this.isTakeaway = isTakeaway;
