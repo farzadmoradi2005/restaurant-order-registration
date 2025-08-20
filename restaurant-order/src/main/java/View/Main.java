@@ -29,7 +29,19 @@ public class Main {
             userController.signUp(username, password);
             System.out.println("register successful");
         }
-        System.out.println();
+        System.out.println("write your order details");
+        String orderDetails = sc.next();
+        System.out.println("is it takeaway order");
+        String isTakeawayOrder = sc.next();
+        if (isTakeawayOrder.equals("yes")) {
+            String address = sc.next();
+            boolean isTakeawayAddress = true;
+            orderController.SubmitOrder(orderDetails , isTakeawayAddress , 50);
+        }
+        else if (isTakeawayOrder.equals("no")) {
+            boolean isTakeawayAddress = false;
+            orderController.SubmitOrder(orderDetails , isTakeawayAddress , 50);
+        }
     }
 
 }
