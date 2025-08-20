@@ -9,6 +9,7 @@ public class UserController {
 
     private static User currentUser = null;
     public void signUp(String userName, String password) throws SQLException {
+        currentUser = new User(userName, password);
         String URL = "jdbc:postgresql://localhost:5432/Restaurant_Order";
         String USER = "RestaurantAdmin";
         String PASS = "RestaurantAdmin";

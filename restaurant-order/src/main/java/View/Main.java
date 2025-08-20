@@ -4,25 +4,32 @@ import Controller.OrderController;
 import Controller.UserController;
 
 import java.sql.SQLException;
+import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) throws SQLException {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
         UserController userController = new UserController();
-        userController.login("s" , "s");
         OrderController orderController = new OrderController();
-        orderController.SubmitOrder("asd" , true , 10);
-        orderController.SubmitOrder("asd" , true , 10);
-        orderController.SubmitOrder("asd" , true , 10);
-        orderController.SubmitOrder("asd" , true , 10);
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("""
+                1. login
+                2. register""");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        if (choice == 1) {
+            String username = sc.next();
+            String password = sc.next();
+            userController.login(username, password);
+            System.out.println("login successful");
         }
+        else if (choice == 2) {
+            String username = sc.next();
+            String password = sc.next();
+            userController.signUp(username, password);
+            System.out.println("register successful");
+        }
+        System.out.println();
     }
+
 }
