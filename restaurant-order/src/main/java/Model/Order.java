@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class Order {
     private User user;
     private int orderId;
+    private static int finalID;
     private static int counter = 0;
     private String orderDetails;
     private boolean orderStatus;
@@ -14,14 +15,17 @@ public class Order {
    private final LocalDateTime orderDate;
     private int orderPrice;
     public Order(String orderDetails , boolean isTakeaway , int orderPrice ) {
+        counter = finalID;
         this.user = user;
         this.orderDetails = orderDetails;
         this.isTakeaway = isTakeaway;
         this.orderPrice = orderPrice;
-        this.orderId = counter++;
+        this.orderId = counter;
         this.orderStatus = true;
         this.canEdit = true;
         this.orderDate = LocalDateTime.now();
+        counter+=1;
+        finalID = counter;
     }
 
     public User getUser() {

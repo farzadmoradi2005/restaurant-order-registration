@@ -5,6 +5,8 @@ import Model.User;
 import java.sql.*;
 
 public class UserController {
+
+
     private static User currentUser = null;
     public void signUp(String userName, String password) throws SQLException {
         String URL = "jdbc:postgresql://localhost:5432/Restaurant_Order";
@@ -36,5 +38,12 @@ public class UserController {
         con.close();
         return false;
 
+    }
+    public static User getCurrentUser() {
+        return currentUser;
+    }
+
+    public static void setCurrentUser(User currentUser) {
+        UserController.currentUser = currentUser;
     }
 }
