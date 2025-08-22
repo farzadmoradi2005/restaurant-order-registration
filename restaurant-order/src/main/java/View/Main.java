@@ -37,11 +37,26 @@ public class Main {
             String address = sc.next();
             boolean isTakeawayAddress = true;
             orderController.SubmitOrder(orderDetails , isTakeawayAddress , 50);
+            System.out.println("order submitted");
         }
         else if (isTakeawayOrder.equals("no")) {
             boolean isTakeawayAddress = false;
             orderController.SubmitOrder(orderDetails , isTakeawayAddress , 50);
+            System.out.println("order submitted");
         }
+        System.out.println("------------------------------");
+        System.out.println("""
+                1. orderID
+                2. cancel order
+                3. edit order""");
+        int choice2 = sc.nextInt();
+        if (choice2 == 1) {
+            System.out.println(orderController.showOrderID());
+        }
+        else if (choice2 == 2) {
+            orderController.cancelOrder();
+        }
+        else if (choice2 == 3) {}
     }
 
 }

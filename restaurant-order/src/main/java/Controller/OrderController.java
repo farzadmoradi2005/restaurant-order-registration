@@ -56,6 +56,20 @@ public class OrderController {
             }
         }
     }
+    public void cancelOrder() throws SQLException {
+        Connection con = DriverManager.getConnection(URL, USER, PASS);
+        String Query = "SELECT * FROM order_res";
+        ResultSet rs = con.createStatement().executeQuery(Query);
+        while (rs.next()) {
+            if (rs.getInt("order_id") == order.getOrderId()) {
+                String Query2 = "DELETE FROM order_res WHERE order_id = ?";
+                PreparedStatement ps = con.prepareStatement(Query2);
+                ps.setInt(1 , order.getOrderId());
+                ps.executeUpdate();
+            }
+            con.close();
+        }
+    }
     public Order getOrder() {
         return order;
     }
